@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minh Khôi Foods — Tinh hoa di sản, đượm vị quê nhà</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emerald: #163A31;
+    --emerald-deep: #0E2822;
+    --emerald-light: #2C5346;
+    --gold: #C9A24B;
+    --gold-light: #E6CB84;
+    --kraft: #F3ECDD;
+    --kraft-dark: #E4D6B8;
+    --ink: #221B12;
+    --muted: #6B6152;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--kraft);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Playfair Display', serif;
+    color:var(--emerald-deep);
+    margin:0;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .rule{width:46px;height:2px;background:var(--gold);}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:18px;
+  }
+
+  /* ===== HEADER ===== */
+  header{position:sticky;top:0;z-index:60;background:rgba(243,236,221,0.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(34,27,18,0.08);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;}
+  .logo{display:flex;align-items:center;gap:12px;}
+  .gate-mark{width:38px;height:38px;}
+  .logo-text{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;color:var(--emerald-deep);line-height:1.1;}
+  .logo-text span{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:10px;letter-spacing:0.18em;color:var(--gold);text-transform:uppercase;margin-top:3px;}
+  nav.links{display:flex;gap:34px;font-size:14px;font-weight:500;color:var(--emerald-deep);}
+  nav.links a{position:relative;padding:4px 0;}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--gold);transition:width .3s ease;}
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{background:var(--emerald-deep);color:var(--gold-light);padding:11px 24px;font-size:13px;font-weight:600;letter-spacing:0.03em;border:1px solid var(--gold);}
+  @media(max-width:820px){ nav.links{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero{position:relative;background:var(--emerald-deep);color:var(--kraft);overflow:hidden;padding:100px 0 0;}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;}
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero-copy{padding:0 0 90px;position:relative;z-index:2;}
+  .hero h1{font-size:clamp(34px,4.6vw,54px);color:var(--kraft);line-height:1.15;}
+  .hero h1 em{font-style:italic;color:var(--gold-light);}
+  .hero p.lede{color:#CFC5AC;font-size:16.5px;max-width:440px;margin:22px 0 34px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-size:14px;font-weight:600;letter-spacing:0.03em;transition:transform .25s ease, box-shadow .25s ease;}
+  .btn-gold{background:var(--gold);color:var(--emerald-deep);}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-outline{border:1px solid var(--gold-light);color:var(--kraft);}
+  .btn-outline:hover{background:rgba(230,203,132,0.1);}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .hero-visual{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0;}
+  .gift-illustration{width:100%;max-width:480px;}
+
+  .gate-divider{width:100%;display:block;}
+  .gate-divider svg{width:100%;display:block;}
+
+  /* ===== VALUE POINTS ===== */
+  .values{padding:70px 0;background:var(--kraft);}
+  .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  @media(max-width:820px){ .value-grid{grid-template-columns:1fr;} }
+  .value-item{text-align:center;padding:0 16px;}
+  .value-item .icon{width:52px;height:52px;margin:0 auto 20px;}
+  .value-item h3{font-size:17px;color:var(--emerald-deep);margin-bottom:10px;}
+  .value-item p{font-size:14px;color:var(--muted);margin:0;}
+
+  /* ===== PRODUCTS ===== */
+  .section{padding:90px 0;}
+  .section-head{text-align:center;max-width:600px;margin:0 auto 54px;}
+  .section-head .eyebrow{justify-content:center;}
+  .section-head h2{font-size:clamp(28px,3.4vw,38px);}
+  .section-head p{color:var(--muted);margin-top:14px;font-size:15px;}
+
+  .products{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  @media(max-width:900px){ .products{grid-template-columns:1fr;} }
+  .p-card{background:#fff;border:1px solid rgba(34,27,18,0.08);position:relative;transition:box-shadow .3s ease, transform .3s ease;}
+  .p-card:hover{box-shadow:0 24px 50px -30px rgba(22,58,49,0.4);transform:translateY(-4px);}
+  .p-media{aspect-ratio:4/3;background:var(--emerald);position:relative;overflow:hidden;}
+  .p-media svg{width:100%;height:100%;}
+  .p-tag{position:absolute;top:16px;left:16px;background:var(--kraft);color:var(--emerald-deep);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 12px;font-weight:600;}
+  .p-body{padding:24px 24px 26px;}
+  .p-body h3{font-size:19px;color:var(--emerald-deep);}
+  .p-weight{font-size:12.5px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;}
+  .p-body p.desc{font-size:13.8px;color:var(--muted);margin:14px 0 20px;min-height:44px;}
+  .p-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(34,27,18,0.08);padding-top:16px;}
+  .p-price{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;color:var(--emerald-deep);}
+  .p-btn{background:var(--emerald-deep);color:var(--gold-light);font-size:12.5px;font-weight:600;padding:10px 18px;border:1px solid var(--gold);}
+  .p-btn:hover{background:var(--gold);color:var(--emerald-deep);}
+
+  /* ===== STORY ===== */
+  .story{background:var(--emerald-deep);color:var(--kraft);}
+  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:900px){ .story .wrap{grid-template-columns:1fr;} }
+  .story h2{color:var(--kraft);font-size:clamp(28px,3.4vw,36px);}
+  .story p{color:#CFC5AC;font-size:15.5px;margin-top:18px;}
+  .story-art{position:relative;}
+  .story-art .frame{border:1px solid var(--gold);padding:14px;}
+  .story-art svg{width:100%;}
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials{background:var(--kraft-dark);}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media(max-width:900px){ .t-grid{grid-template-columns:1fr;} }
+  .t-card{background:#fff;padding:30px 26px;border-top:2px solid var(--gold);}
+  .t-quote{font-size:14.5px;color:var(--ink);font-style:italic;margin-bottom:18px;}
+  .t-name{font-size:13px;font-weight:600;color:var(--emerald-deep);}
+  .t-role{font-size:12px;color:var(--muted);}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--emerald-deep);color:#CFC5AC;padding:56px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+  @media(max-width:760px){ .footer-grid{grid-template-columns:1fr;} }
+  footer h4{color:var(--gold-light);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;font-weight:600;}
+  footer .f-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:13.5px;}
+  .footer-bottom{border-top:1px solid rgba(230,203,132,0.2);margin-top:40px;padding-top:20px;font-size:12.5px;color:#9C927C;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* ===== ZALO CHAT ===== */
+  .chat-fab{
+    position:fixed;bottom:24px;right:24px;z-index:80;
+    width:58px;height:58px;border-radius:50%;
+    background:var(--gold);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.25);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .chat-fab svg{width:28px;height:28px;}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 8px 24px rgba(0,0,0,0.25), 0 0 0 0 rgba(201,162,75,0.5);}
+    50%{box-shadow:0 8px 24px rgba(0,0,0,0.25), 0 0 0 10px rgba(201,162,75,0);}
+  }
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <div class="logo">
+      <svg class="gate-mark" viewBox="0 0 48 48"><path d="M6 42V22 C6 12 14 6 24 6 C34 6 42 12 42 22 V42" fill="none" stroke="#C9A24B" stroke-width="2.5"/><line x1="6" y1="42" x2="6" y2="24" stroke="#C9A24B" stroke-width="2.5"/><line x1="42" y1="42" x2="42" y2="24" stroke="#C9A24B" stroke-width="2.5"/><rect x="20" y="30" width="8" height="12" fill="#C9A24B"/></svg>
+      <div class="logo-text">Minh Khôi Foods<span>Đặc sản di sản</span></div>
+    </div>
+    <nav class="links">
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#cau-chuyen">Câu chuyện</a>
+      <a href="#danh-gia">Đánh giá</a>
+    </nav>
+    <a href="#san-pham" class="nav-cta">Khám phá hộp quà</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Đặc sản Vĩnh Lộc — Thanh Hóa</div>
+      <h1>Tinh hoa <em>di sản</em><br>Đượm vị quê nhà</h1>
+      <p class="lede">Chè lam, kẹo lạc nguyên bản xứ Thanh được nghệ nhân Vĩnh Lộc gìn giữ công thức, đóng gói trong những hộp quà tinh tế — món quà biếu xứng tầm cho người bạn trân quý.</p>
+      <div class="btn-row">
+        <a href="#san-pham" class="btn btn-gold">Khám phá hộp quà di sản</a>
+        <a href="#cau-chuyen" class="btn btn-outline">Hành trình tìm về miền di sản</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="gift-illustration" viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="210" cy="350" rx="170" ry="18" fill="#0E2822"/>
+        <rect x="80" y="140" width="260" height="170" fill="#1F4B3F"/>
+        <rect x="80" y="140" width="260" height="170" fill="none" stroke="#C9A24B" stroke-width="1.5"/>
+        <rect x="80" y="140" width="260" height="36" fill="#173D33"/>
+        <line x1="200" y1="140" x2="200" y2="310" stroke="#C9A24B" stroke-width="2"/>
+        <line x1="80" y1="176" x2="340" y2="176" stroke="#C9A24B" stroke-width="1"/>
+        <circle cx="200" cy="176" r="16" fill="#C9A24B"/>
+        <path d="M192 176 q8 -14 16 0 q8 -14 16 0" fill="none" stroke="#0E2822" stroke-width="2"/>
+        <path d="M60 140 C60 90 100 60 200 60 C300 60 340 90 340 140" fill="none" stroke="#C9A24B" stroke-width="2.5" stroke-dasharray="1 0"/>
+      </svg>
+    </div>
+  </div>
+  <div class="gate-divider">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 60 L0 40 Q 200 0 400 40 Q 600 0 800 40 Q 1000 0 1200 40 L1200 60 Z" fill="#F3ECDD"/></svg>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap value-grid">
+    <div class="value-item">
+      <svg class="icon" viewBox="0 0 52 52"><circle cx="26" cy="26" r="22" fill="none" stroke="#C9A24B" stroke-width="1.5"/><path d="M16 27 L23 34 L37 18" fill="none" stroke="#C9A24B" stroke-width="2"/></svg>
+      <h3>100% nguyên liệu sạch tự nhiên</h3>
+      <p>Gạo nếp, mật mía, lạc, gừng được chọn từ vùng nguyên liệu Vĩnh Lộc, không chất bảo quản.</p>
+    </div>
+    <div class="value-item">
+      <svg class="icon" viewBox="0 0 52 52"><circle cx="26" cy="26" r="22" fill="none" stroke="#C9A24B" stroke-width="1.5"/><path d="M26 14 L30 24 L40 24 L32 30 L35 40 L26 34 L17 40 L20 30 L12 24 L22 24 Z" fill="#C9A24B"/></svg>
+      <h3>Công thức nghệ nhân độc bản</h3>
+      <p>Bí quyết gia truyền của những người thợ Vĩnh Lộc, gìn giữ qua nhiều thế hệ.</p>
+    </div>
+    <div class="value-item">
+      <svg class="icon" viewBox="0 0 52 52"><circle cx="26" cy="26" r="22" fill="none" stroke="#C9A24B" stroke-width="1.5"/><rect x="16" y="20" width="20" height="16" fill="none" stroke="#C9A24B" stroke-width="2"/><line x1="16" y1="26" x2="36" y2="26" stroke="#C9A24B" stroke-width="2"/></svg>
+      <h3>Hộp quà bao bì cao cấp, chỉn chu</h3>
+      <p>Bao bì phân hủy sinh học, thiết kế tinh giản dành riêng cho quà biếu tặng.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="san-pham" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Bộ sưu tập trọng tâm</div>
+      <h2>Ba lựa chọn tinh hoa</h2>
+      <p>Từ hộp quà biếu tặng đến món thưởng thức hằng ngày cho gia đình.</p>
+    </div>
+    <div class="products">
+
+      <div class="p-card">
+        <div class="p-media">
+          <span class="p-tag">Luxury</span>
+          <svg viewBox="0 0 300 225"><rect width="300" height="225" fill="#163A31"/><rect x="70" y="60" width="160" height="110" fill="#1F4B3F" stroke="#C9A24B" stroke-width="1.5"/><line x1="150" y1="60" x2="150" y2="170" stroke="#C9A24B" stroke-width="1.5"/><circle cx="150" cy="90" r="10" fill="#C9A24B"/></svg>
+        </div>
+        <div class="p-body">
+          <h3>Hộp Quà Di Sản</h3>
+          <div class="p-weight">Chè lam + kẹo lạc cao cấp, kèm túi giấy</div>
+          <p class="desc">Set quà biếu trang trọng, đóng hộp nắp nam châm, phù hợp tặng đối tác và người thân dịp lễ Tết.</p>
+          <div class="p-foot"><span class="p-price">590.000₫</span><a href="#" class="p-btn">Mua ngay</a></div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-media">
+          <span class="p-tag">Thượng hạng</span>
+          <svg viewBox="0 0 300 225"><rect width="300" height="225" fill="#1F4B3F"/><rect x="100" y="50" width="100" height="130" rx="10" fill="#F3ECDD" stroke="#C9A24B" stroke-width="1.5"/><rect x="115" y="65" width="70" height="30" fill="#C9A24B"/></svg>
+        </div>
+        <div class="p-body">
+          <h3>Chè Lam Tiến Vua</h3>
+          <div class="p-weight">250g — Hộp giấy thượng hạng</div>
+          <p class="desc">Ngọt thanh từ mật mía, gừng cay nhẹ, dẻo mịn — hương vị nguyên bản trong lớp vỏ tinh tế.</p>
+          <div class="p-foot"><span class="p-price">185.000₫</span><a href="#" class="p-btn">Mua ngay</a></div>
+        </div>
+      </div>
+
+      <div class="p-card">
+        <div class="p-media">
+          <span class="p-tag">Bán chạy</span>
+          <svg viewBox="0 0 300 225"><rect width="300" height="225" fill="#163A31"/><rect x="90" y="70" width="120" height="90" rx="6" fill="#F3ECDD" stroke="#C9A24B" stroke-width="1.5"/><circle cx="120" cy="105" r="6" fill="#163A31"/><circle cx="150" cy="120" r="6" fill="#163A31"/><circle cx="180" cy="100" r="6" fill="#163A31"/></svg>
+        </div>
+        <div class="p-body">
+          <h3>Kẹo Lạc Giòn Tan</h3>
+          <div class="p-weight">250g — Đóng gói hút chân không</div>
+          <p class="desc">Lạc rang vàng giòn, mạch nha trong veo — giữ trọn độ giòn nhờ công nghệ hút chân không.</p>
+          <div class="p-foot"><span class="p-price">95.000₫</span><a href="#" class="p-btn">Mua ngay</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="story" id="cau-chuyen">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Câu chuyện thương hiệu</div>
+      <h2>Bỏ phố về quê, giữ lấy di sản</h2>
+      <p>Minh Khôi Foods bắt đầu từ quyết định của một cặp vợ chồng trẻ: rời thành phố, trở về Vĩnh Lộc — nơi có Thành Nhà Hồ sừng sững hơn 600 năm — để gìn giữ và nâng tầm những món quà quê từng nuôi lớn tuổi thơ họ.</p>
+      <p>Từng mẻ chè lam, từng mẻ kẹo lạc đều được làm thủ công theo công thức nghệ nhân, đóng gói lại bằng ngôn ngữ hiện đại để xứng đáng đặt cạnh những món quà biếu cao cấp nhất.</p>
+      <a href="#" class="btn btn-outline" style="margin-top:26px;">Hành trình tìm về miền di sản</a>
+    </div>
+    <div class="story-art">
+      <div class="frame">
+        <svg viewBox="0 0 400 300"><rect width="400" height="300" fill="#0E2822"/><path d="M40 300 V150 Q40 90 120 70 Q140 60 160 70 Q180 60 200 70 Q220 60 240 70 Q260 60 280 70 Q360 90 360 150 V300" fill="none" stroke="#C9A24B" stroke-width="2"/><rect x="180" y="220" width="40" height="80" fill="#C9A24B"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" id="danh-gia">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Khách hàng nói gì</div>
+      <h2>Được tin chọn để biếu tặng</h2>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <p class="t-quote">"Hộp quà rất sang, mở ra thơm mùi mật mía đúng vị quê. Tôi đã đặt biếu đối tác dịp Tết và nhận được lời khen."</p>
+        <div class="t-name">Chị Thu Hà</div><div class="t-role">Nhân viên văn phòng, Hà Nội</div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"Bao bì tinh tế, không hề rẻ tiền như nhiều đặc sản khác. Chè lam dẻo vừa, không quá ngọt."</p>
+        <div class="t-name">Anh Quang Minh</div><div class="t-role">Quản lý kinh doanh, TP.HCM</div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"Đặt 20 hộp làm quà tặng khách hàng, đóng gói cẩn thận và giao đúng hẹn. Sẽ ủng hộ lâu dài."</p>
+        <div class="t-name">Chị Bảo Ngọc</div><div class="t-role">Chủ doanh nghiệp nhỏ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:16px;">
+        <svg class="gate-mark" viewBox="0 0 48 48"><path d="M6 42V22 C6 12 14 6 24 6 C34 6 42 12 42 22 V42" fill="none" stroke="#C9A24B" stroke-width="2"/></svg>
+        <div class="logo-text" style="color:#F3ECDD;">Minh Khôi Foods</div>
+      </div>
+      <p style="font-size:13.5px;max-width:300px;">Đặc sản di sản Vĩnh Lộc — Thanh Hóa. Tinh hoa di sản, đượm vị quê nhà.</p>
+    </div>
+    <div>
+      <h4>Sản phẩm</h4>
+      <ul class="f-links"><li><a href="#san-pham">Hộp Quà Di Sản</a></li><li><a href="#san-pham">Chè Lam Tiến Vua</a></li><li><a href="#san-pham">Kẹo Lạc Giòn Tan</a></li></ul>
+    </div>
+    <div>
+      <h4>Liên hệ</h4>
+      <ul class="f-links"><li>Hotline: 0988 617 069</li><li>Zalo OA: Minh Khôi Foods</li><li>Vĩnh Lộc, Thanh Hóa</li></ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <div>© 2026 Minh Khôi Foods. Bảo lưu mọi quyền.</div>
+    <div>Thuần mộc & Tinh tế</div>
+  </div>
+</footer>
+
+<a href="#" class="chat-fab" aria-label="Chat qua Zalo">
+  <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#0E2822"/><text x="16" y="21" text-anchor="middle" font-family="Inter" font-weight="700" font-size="12" fill="#E6CB84">Zalo</text></svg>
+</a>
+
+</body>
+</html>
